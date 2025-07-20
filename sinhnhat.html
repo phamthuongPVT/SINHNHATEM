@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lá Thư Tâm Tình</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="sn.css" />
+  <style>
+    .letter {
+      padding: 20px;
+      margin: 20px;
+      background-color: #ffe6f0; /* Màu hồng nhạt cho nền bức thư */
+    }
+
+    .letter h1 {
+      color: #d633aa; /* Màu hồng đậm cho tiêu đề */
+    }
+
+    .letter p {
+      font-family: 'Dancing+Script', cursive; /* Font chữ đẹp, phong cách viết tay */
+      line-height: 1.6; /* Khoảng cách giữa các dòng */
+      animation: fadeIn 0.5s ease forwards; /* Animation mượt mà */
+      opacity: 0;
+      margin: 0; /* Loại bỏ margin mặc định của đoạn văn */
+      padding: 0; /* Loại bỏ padding mặc định */
+    }
+
+    .letter p:nth-child(1) { animation-delay: 0.2s; }
+    .letter p:nth-child(2) { animation-delay: 0.4s; }
+    .letter p:nth-child(3) { animation-delay: 0.6s; }
+    .letter p:nth-child(4) { animation-delay: 0.8s; }
+    .letter p:nth-child(5) { animation-delay: 1s; }
+    .letter p:nth-child(6) { animation-delay: 1.2s; }
+    .letter p:nth-child(7) { animation-delay: 1.4s; }
+
+    .signature {
+      color: #1e3799; /* Màu xanh đậm cho chữ ký */
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+  <div class="envelope closed" id="envelope">
+    <div class="envelope-flap"></div>
+    <div class="letter" id="letter">
+      <h1>Lá Thư Tâm Tình</h1>
+      <p>Gửi em,</p>
+      <p>Và ngày đó em sinh ra đời, cùng ngàn vì sao lung linh tỏa sáng…</p>
+      <p> Cho đến bây giờ ngôi sao sáng nhất bầu trời vẫn luôn là em.</p>
+      <p>Chúc mừng sinh nhật người con gái đặc biệt của anh..</p>
+      <p>🎉</p>
+      <p>Chúc em tất cả.</p>
+      <p class="signature" id="signature">Với tất cả tình cảm,<br>Phạm Thưởng <span style="color: red;">♥</span></p>
+    </div>
+  </div>
+
+  <button class="next-button" id="nextButton">🌸 Đi tiếp 👉</button>
+
+  <script src="sn.js"></script>
+</body>
+</html>

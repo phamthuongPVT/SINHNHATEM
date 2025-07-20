@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Dancing+Script:wght@700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(270deg, #fdeff9, #e0f7ff, #fff0f6, #fdeff9);
+  background-size: 800% 800%;
+  animation: gradientShift 20s ease infinite;
+  overflow: hidden;
+  text-align: center;
+  color: #c84a7d;
+  position: relative;
+  height: 100vh;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.5em;
+  margin-top: 80px;
+  opacity: 0;
+  transform: scale(0.6);
+  animation: popScale 1s ease forwards;
+  animation-delay: 0.3s;
+  color: #e91e63;
+  text-shadow: 0 0 15px rgba(233, 30, 99, 0.5);
+  user-select: none;
+}
+
+@keyframes popScale {
+  0% { opacity: 0; transform: scale(0.6); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.message {
+  font-size: 1.4em;
+  max-width: 650px;
+  margin: 25px auto 0;
+  min-height: 3em;
+  color: #d6336c;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 1.5s;
+  user-select: none;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Trái tim bay */
+.floating-heart {
+  position: absolute;
+  bottom: -80px;
+  font-size: 30px;
+  color: #ff1493;
+  opacity: 0;
+  animation: floatUp 10s linear infinite;
+  filter: drop-shadow(0 0 2px #ff77aa);
+  user-select: none;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+.action-btn {
+  margin-top: 35px;
+  padding: 14px 36px;
+  font-size: 1.3em;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  border: none;
+  background-color: #ff4c8b;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 76, 139, 0.6);
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.25s ease;
+}
+
+.action-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.action-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(255, 76, 139, 0.8);
+}
+
+.music-btn, .back-btn {
+  position: fixed;
+  top: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #ff3366;
+  z-index: 11;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+.music-btn { right: 20px; }
+.back-btn { left: 20px; text-decoration: none; }
+.music-btn:hover, .back-btn:hover { transform: scale(1.1); }
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #e91e63;
+  animation: explode 1s ease-out forwards;
+  border-radius: 50%;
+}
+
+.confetti.heart {
+  width: 12px;
+  height: 12px;
+  background-color: #ff69b4;
+  border-radius: 0;
+  transform: rotate(45deg);
+}
+
+.confetti.heart::before,
+.confetti.heart::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #ff69b4;
+  border-radius: 50%;
+}
+
+.confetti.heart::before { top: -6px; left: 0; }
+.confetti.heart::after { top: 0; left: -6px; }
+
+@keyframes explode {
+  0% { transform: translate(0, 0) scale(1) rotate(0); opacity: 1; }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Pháo hoa */
+.firework-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.firework {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 20px;
+  background: radial-gradient(circle, #fff 0%, transparent 70%);
+  border-radius: 50% 50% 0 0;
+  transform-origin: bottom center;
+  opacity: 0;
+  animation: fireworkExplode 1s ease forwards;
+}
+
+@keyframes fireworkExplode {
+  0% { opacity: 1; transform: translateY(0) scaleY(1); }
+  100% { opacity: 0; transform: translateY(-100px) scaleY(3); }
+}
+
+/* Ảnh trái tim */
+.photo {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(233, 30, 99, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  border: 5px solid white;
+  background: white;
+  z-index: 30;
+  transition: transform 3s ease, opacity 3s ease;
+  transform: translate(-50%, -50%);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  h1 { font-size: 2.2em; margin-top: 70px; }
+  .message { font-size: 1.1em; max-width: 90%; }
+  .action-btn { font-size: 1.1em; padding: 12px 28px; }
+  .music-btn, .back-btn { width: 40px; height: 40px; font-size: 1.3em; top: 15px; }
+  .music-btn { right: 15px; }
+  .back-btn { left: 15px; }
+  .firework-container { width: 140px; height: 140px; }
+  .photo {
+    width: 70px !important;
+    height: 70px !important;
+    border-radius: 15px !important;
+    border-width: 3px !important;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.6) !important;
+  }
+}
